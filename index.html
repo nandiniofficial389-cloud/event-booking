@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShowGo!</title>    
+  <style> 
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow-x:hidden ;
+      background-color: #1C1C1C;
+    } 
+    nav {
+      display: flex;
+      justify-content:  center;
+      align-items: center;
+      padding: 5px 5px 5px 5px;
+      background-color: black;
+      height: 60px;
+    }
+    .logo img{
+      left: 30px;
+      height: 100px;
+      width: 150px
+    }
+    .links a {
+      color: #EAEAEA;
+      gap: 40px;
+      margin: 5px 5px 5px 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .links a:hover {
+      color: #FFD700;
+    }
+    #main {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: rgb(246, 246, 187);
+      position: relative;     
+    }
+    .slideshow {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0; 
+    }
+    .slide {
+      position: absolute;
+      width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: translateX(100%); 
+      transition: opacity 3s ease-in-out, transform 3s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide.prev {
+      opacity: 0;
+      transform: translateX(-100%); 
+    }
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .intro h1 {
+      font-size: 3rem;
+      color: black;
+    }
+    .intro p {
+      font-style: oblique;
+      color: black;
+      max-width: 600px;
+    }
+    .btn {
+      background: rgb(246, 246, 187);
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 60px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: black;
+      color: rgb(246, 246, 187);
+    }
+    .event-card {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); 
+      gap: 40px;
+      margin: 40px 40px;    
+    }
+    .event-card img {
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+    .event-card img:hover {
+      transform: scale(1.05);
+      border: 2px solid rgba(255, 255, 0, 0.5);
+    }
+    @media (max-width: 1200px) {
+      #main {
+        height: 400px; 
+      }
+      .intro h1 {
+        font-size: 2.5rem;
+      }
+      .event-card {
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 50px;
+      }
+    }
+    @media (max-width: 900px) {
+      #main {
+        height: 350px;
+      }
+      .intro h1 {
+        font-size: 2rem;
+      }
+      .intro p {
+        font-size: 0.9rem;
+      }
+      .event-card {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px;
+      }
+      nav {
+        display: flex;
+        justify-content:  center;
+        align-items: center;
+        padding: 5px 5px 5px 5px;
+        background-color: black;
+        height: 60px;
+      }
+      .logo img{
+        left: 30px;
+        height: 100px;
+        width: 150px
+      }
+      .links a {
+        color: #EAEAEA;
+        gap: 40px;
+        margin: 5px 5px 5px 5px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .links a:hover {
+        color: #FFD700;
+      }
+    }
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        justify-content:  center;
+        align-items: center;
+        padding: 5px 5px 5px 5px;
+        background-color: black;
+        height: 50px;
+      }
+      .logo img{
+        left: 30px;
+        height: 100px;
+        width: 150px
+      }
+      .links a {
+        color: #EAEAEA;
+        gap: 40px;
+        margin: 5px 5px 5px 5px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .links a:hover {
+        color: #FFD700;
+      }
+      #main {          
+        height: 350px;
+      }
+      .event-card {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+      }
+      .event-card img {
+        width: 170px;
+        height: 160px;
+      }
+    }
+    @media (max-width: 400px) {
+      nav {
+        display: flex;
+        justify-content:  center;
+        align-items: center;
+        padding: 5px 5px 5px 5px;
+        background-color: black;
+        height: 60px;
+      }
+      .logo img{
+        left: 30px;
+        height: 100px;
+        width: 150px
+      }
+      .links a {
+        color: #EAEAEA;
+        gap: 40px;
+        margin: 5px 5px 5px 5px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .links a:hover {
+        color: #FFD700;
+      }
+      #main {
+        margin-top: 20px;                 
+        height: 350px;
+      }
+      .event-card {
+        grid-template-columns: 1fr;       
+        gap: 10px;
+      }
+      .event-card img {
+        width: 170px;
+        height: 160px;
+      }
+    }
+    </style> 
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="white.png" alt="logo">
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="event.html">Events</a>
+      <a href="form.html">Book</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <section id="main">
+    <div class="slideshow">
+      <div class="slide" style="background-image: url('1.jpg')"></div>
+      <div class="slide" style="background-image: url('2.jpg')"></div>
+      <div class="slide" style="background-image: url('3.jpg')"></div>
+      <div class="slide" style="background-image: url('4.jpg')"></div>
+      <div class="slide" style="background-image: url('5.jpg')"></div>
+    </div>
+    <div class="intro">
+      <h1><b><i>BOOK.GO.ENJOY</i></b></h1>
+      <p> Bring entertainment and experiences closer to everyone, offering a simple, <br>secure, and fast way to book tickets  anytime, anywhere.</p>
+      <a href="event.html"><button class="btn">Explore</button></a>
+    </div>
+  </section>
+  <section id="card">
+    <div class="event-card">
+      <img src="1.png">
+      <img src="2.png">
+      <img src="3.png">
+      <img src="4.png">
+      <img src="5.png">
+      <img src="6.png">
+    </div>
+  </section>
+  <script>
+    const  slides = document.querySelectorAll(".slide");
+    let currentIndex = 0;
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+      slide.classList.remove("active", "prev");
+      if (i === index) {
+        slide.classList.add("active");
+      }
+      else if (i === (index - 1 + slides.length) % slides.length) {
+        slide.classList.add("prev");
+      }
+      });
+    }
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+    showSlide(currentIndex);
+    setInterval(nextSlide, 4000); 
+  </script>
+</body>
+</html>

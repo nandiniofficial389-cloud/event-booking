@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShowGo!</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #1C1C1C;
+      color: white;
+    } 
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 5px 5px 5px;
+      background-color: black;
+      height: 60px;
+    }
+    .logo img {
+        left: 30px;
+      height: 100px;
+      width: 150px;
+    }
+    .links a {
+      color: #EAEAEA;
+      gap: 40px;
+      margin: 5px 5px 5px 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .links a:hover {
+      color: #FFD700;
+    }  
+    .booking-form {
+      background: #2c2c2c;
+      padding: 25px;
+      border-radius: 12px;
+      width: 350px;
+      margin: 40px auto;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .booking-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align:justify;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 97%;               
+      margin: 0 auto;           
+      display: block;          
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: #FFD700;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .submit-btn:hover {
+      background: #e6c200;
+    }
+    .confirmation-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .confirmation-card {
+      background: #fff;
+      color: #000;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      width: 350px;
+    }
+    .check-icon {
+      font-size: 50px;
+      color: green;
+      margin-bottom: 15px;
+    }
+    .ticket-details {
+      margin: 15px 0;
+      text-align: left;
+    }
+    .home {
+      width: 100%;
+      padding: 12px;
+      background: #FFD700;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .home:hover {
+      background: #e6c200;
+    }
+    footer{
+      background-color: black;
+      color: #EAEAEA;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    @media (max-width: 1200px) {
+      .booking-form {
+        background: #2c2c2c;
+        padding: 25px;
+        border-radius: 12px;
+        width: 350px;
+        margin: 40px auto;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        text-align: center;
+      }
+      .booking-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #FFD700;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align:justify;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input, select {
+        width: 97%;             
+        margin: 0 auto;          
+        display: block;         
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+     }
+     .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: #FFD700;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .submit-btn:hover {
+        background: #e6c200;
+      }
+    }
+    @media (max-width: 900px) {
+      .booking-form {
+        background: #2c2c2c;
+        padding: 25px;
+        border-radius: 12px;
+        width: 350px;
+        margin: 40px auto;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        text-align: center;
+      }
+      .booking-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #FFD700;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align:justify;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input, select {
+        width: 97%;             
+        margin: 0 auto;          
+        display: block;         
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+     }
+     .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: #FFD700;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .submit-btn:hover {
+        background: #e6c200;
+      }
+    }
+    @media (max-width: 600px) {
+      .booking-form {
+        background: #2c2c2c;
+        padding: 25px;
+        border-radius: 12px;
+        width: 350px;
+        margin: 40px auto;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        text-align: center;
+      }
+      .booking-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #FFD700;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align:justify;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input, select {
+        width: 97%;             
+        margin: 0 auto;          
+        display: block;         
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+     }
+     .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: #FFD700;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .submit-btn:hover {
+        background: #e6c200;
+      }
+    }
+    @media (max-width: 1200px) {
+      .booking-form {
+        background: #2c2c2c;
+        padding: 25px;
+        border-radius: 12px;
+        width: 350px;
+        margin: 40px auto;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        text-align: center;
+      }
+      .booking-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #FFD700;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align:justify;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input, select {
+        width: 97%;             
+        margin: 0 auto;          
+        display: block;         
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+     }
+     .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background: #FFD700;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .submit-btn:hover {
+        background: #e6c200;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="white.png" alt="logo">
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="event.html">Events</a>
+      <a href="form.html">Book</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+  <form class="booking-form">
+    <h2>Book Your Event!</h2>
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact Number</label>
+      <input type="tel" id="contact" placeholder="Enter contact number" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter email" required>
+    </div>
+    <div class="form-group">
+      <label for="persons">No. of Persons</label>
+      <input type="number" id="persons" min="1" max="10" required>
+    </div>
+    <div class="form-group">
+      <label for="event">Select Event</label>
+      <select id="event" required>
+        <option value="">-- Choose Event --</option>
+        <option value="Interstellar">Interstellar (Movie)</option>
+        <option value="Inception">Inception (Movie)</option>
+        <option value="The Matrix">The Matrix (Movie)</option>
+        <option value="Football Finals">Football Finals (Sports)</option>
+        <option value="Cricket T20">Cricket T20 (Sports)</option>
+        <option value="Badminton Open">Badminton Open (Sports)</option>
+        <option value="Sunidhi Chauhan">Sunidhi Chauhan (Concert)</option>
+        <option value="Karan Aujla">Karan Aujla (Concert)</option>
+        <option value="Shreya Ghoshal">Shreya Ghoshal (Concert)</option>
+        <option value="Radha Krishna">Radha Krishna (Spiritual)</option>
+        <option value="Gauri-Shankar">Gauri-Shankar (Spiritual)</option>
+        <option value="Mahabharat">Mahabharat (Spiritual)</option>
+        <option value="Madhur Virli">Madhur Virli (StandUp)</option>
+        <option value="Samay">Samay (StandUp)</option>
+        <option value="Ravi Gupta">Ravi Gupta (StandUp)</option>
+        <option value="Classical Dance">Classical Dance (Dance)</option>
+        <option value="Hip-Hop">Hip-Hop (Dance)</option>
+        <option value="Semi-Classical">Semi-Classical (Dance)</option>
+      </select>
+    </div>
+    <button type="submit" class="submit-btn">Submit Booking</button>
+  </form>
+  <div id="confirmation" class="confirmation-modal">
+    <div class="confirmation-card">
+      <div class="check-icon">✔</div>
+      <h2>Success! Your e-ticket is registered.</h2>
+      <div class="ticket-details">
+        <p><strong>Event:</strong> <span id="eventName"></span></p>
+        <p><strong>Date:</strong> <span id="eventDate"></span></p>
+        <p><strong>Time:</strong> <span id="eventTime"></span></p>
+        <p><strong>Persons:</strong> <span id="personsCount"></span></p>
+        <p><strong>Ordered Date:</strong> <span id="orderedDate"></span></p>
+      </div>
+      <button class="home" onclick="closeConfirmation()">Back to Home</button>
+    </div>
+  </div>
+  <script> 
+    const form = document.querySelector(".booking-form");
+    const confirmation = document.getElementById("confirmation");
+    const eventDetails = {
+      "Interstellar": { date: "Mon, 27 Jul 2026", time: "10:30 PM" },
+      "Inception": { date: "Fri, 24 Jul 2026", time: "9:30 PM" },
+      "The Matrix": { date: "Fri, 31 Jul 2026", time: "7:30 PM" },
+      "Football Finals": { date: "Thu, 27 Aug 2026", time: "8:00 PM" },
+      "Cricket T20": { date: "Mon, 27 Jul 2026", time: "7:30 PM" },
+      "Badminton Open": { date: "Mon, 17 Aug 2026", time: "7:30 PM" },
+      "Sunidhi Chauhan": { date: "Sun, 19 Jul 2026", time: "7:30 PM" },
+      "Karan Aujla": { date: "Sat, 18 Jul 2026", time: "7:30 PM" },
+      "Shreya Ghoshal": { date: "Sat, 25 Jul 2026", time: "7:30 PM" },
+      "Radha Krishna": { date: "Sat, 25 Jul 2026", time: "7:30 PM" },
+      "Gauri-Shankar": { date: "Mon, 27 Jul 2026", time: "7:30 PM" },
+      "Mahabharat": { date: "Sun, 26 Jul 2026", time: "7:30 PM" },
+      "Madhur Virli": { date: "Wed, 29 Jul 2026", time: "5:30 PM" },
+      "Samay": { date: "Thu, 30 Jul 2026", time: "5:30 PM" },
+      "Ravi Gupta": { date: "Fri, 31 Jul 2026", time: "5:30 PM" },
+      "Classical Dance": { date: "Wed, 29 Jul 2026", time: "5:30 PM" },
+      "Hip-Hop": { date: "Thu, 30 Jul 2026", time: "5:30 PM" },
+      "Semi-Classical": { date: "Fri, 31 Jul 2026", time: "5:30 PM" }
+    };
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const eventName = document.getElementById("event").value;
+      const persons = document.getElementById("persons").value;
+      const contact = document.getElementById("contact").value;
+      if (contact.length !== 10 || isNaN(contact)) {
+        alert("Invalid Number! Please enter a 10-digit contact number.");
+        return; 
+      }
+      const today = new Date();
+      const orderedDate = today.toLocaleDateString();
+      const selectedEvent = eventDetails[eventName] || { date: "TBA", time: "TBA" };
+      document.getElementById("eventName").innerText = eventName;
+      document.getElementById("personsCount").innerText = persons;
+      document.getElementById("eventDate").innerText = selectedEvent.date;
+      document.getElementById("eventTime").innerText = selectedEvent.time;
+      document.getElementById("orderedDate").innerText = orderedDate;
+      confirmation.style.display = "flex";
+    });
+    function closeConfirmation() {
+      confirmation.style.display = "none";
+      window.location.href = "index.html";
+    }
+  </script>
+  <footer>
+    <p>&copy; 2026 Event Booking. All rights reserved.</p>
+   
+  </footer>
+</body>
+</html>

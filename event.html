@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShowGo!</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #1C1C1C;
+    } 
+    nav {
+      display: flex;
+      justify-content:  center;
+      align-items: center;
+      padding: 5px 5px 5px 5px;
+      background-color: black;
+      height: 60px;
+    }
+    .logo img{
+      left: 30px;
+      height: 100px;
+      width: 150px
+    }
+    .links a {
+      color: #EAEAEA;
+      gap: 40px;
+      margin: 5px 5px 5px 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .links a:hover {
+      color: #FFD700;
+    }   
+    .category-title {
+      color: #FFD700;
+      margin: 20px 0 10px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    .card-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-direction: row;
+      margin-bottom: 40px;
+    }
+    .event-card {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .event-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .event-card h3 {
+      color: #FFD700;
+      margin: 5px 0;
+    }
+    .event-card p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin: 5px 0;
+    }
+    .event-details {
+      display: none; 
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .toggleBtn {
+      background: #333;
+      color: #FFD700;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .toggleBtn:hover {
+      background: #444;
+    }
+    .price {
+      font-weight: bold;
+      color: #FFD700;
+      margin-top: 10px;
+    }
+    .book-btn {
+      background: #FFD700;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .book-btn:hover {
+      background: #ffcc00;
+    }
+    footer{
+      background-color: black;
+      color: #EAEAEA;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    @media (min-width: 1200px) {
+      .event-card {
+        flex: 1 1 calc(33.33% - 20px); 
+      }
+    }   
+    @media (max-width: 900px) {
+      .card-group {
+        display: flex;                  
+        flex-wrap: wrap; 
+        gap: 20px;
+        justify-items: center;
+      }
+      .event-card {
+        width: 100%;  
+        max-width: 300px;
+      }
+    }
+    @media (max-width: 600px) {
+      .card-group {
+        flex-direction: column; 
+        align-items: center;
+      }
+      .event-card {
+        flex: 1 1 100%; 
+        max-width: 70%;   
+      }
+    }
+    @media (max-width: 400px) {
+      .card-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      .event-card {
+        flex: 1 1 100%;
+        max-width: 70%;  
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="white.png" alt="logo">
+    </div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="event.html">Events</a>
+      <a href="form.html">Book</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+  <!--Movies-->
+  <h2 class="category-title">Movies</h2>
+  <div class="card-group">
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/f1/7b/f8/f17bf8beb6a4279267d8ab9393c9254e.jpg" alt="Interstellar">
+      <h3>Interstellar</h3>
+      <p>⭐ 8.7/10</p>
+      <p>Mankind was born on Earth...</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Mon, 27 Jul 2026</p>
+        <p><strong>Time:</strong> 10:30 PM</p>
+        <p><strong>Venue:</strong> Mall of Dehradun</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>  
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/1200x/7c/57/99/7c57993de98d39cbb0196fd5e25eb6c1.jpg" alt="Inception">
+      <h3>Inception</h3>
+      <p>⭐ 8.8/10</p>
+      <p>Your mind is the scene of the crime.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Fri, 24 Jul 2026</p>
+        <p><strong>Time:</strong> 9:30 PM</p>
+        <p><strong>Venue:</strong> Mall of Dehradun</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/1200x/2c/76/67/2c76677998382cfb86a410d273ffcc87.jpg" alt="The Matrix">
+      <h3>The Matrix</h3>
+      <p>⭐ 8.7/10</p>
+      <p>Welcome to the real world.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Fri, 31 Jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Mall of Dehradun</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+  </div>
+  <!-- Sports -->
+  <h2 class="category-title">Sports</h2>
+  <div class="card-group">
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/93/c6/73/93c673dd89e1cc525f1d6084b0120a05.jpg" alt="Football Match">
+      <h3>Football Finals</h3>
+      <p>⚽ Live at Stadium</p>
+      <p>Exciting championship clash.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Thu, 27 Aug 2026</p>
+        <p><strong>Venue:</strong> King Fahd International Stadium</p>
+        <p><strong>City:</strong> Riyadh, Saudi Arabia</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/1200x/b6/4d/bb/b64dbb5a2471fd1e6888b2b295404ec7.jpg" alt="Cricket Match">
+      <h3>Cricket T20</h3>
+      <p>🏏 RCB vs GT</p>
+      <p>Thrilling IPL showdown.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Mon, 27 jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Dharamshala</p>
+        <p><strong>City:</strong> Himanchal Pradesh, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/1200x/98/1b/d3/981bd32bff071ad00d930d48507ff7e6.jpg" alt="Tennis Match">
+      <h3>Badminton Open</h3>
+      <p>🎾 Grand Slam</p>
+      <p>Top players battle it out.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Mon, 17 Aug 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Indira Gandhi Stadium Complex</p>
+        <p><strong>City:</strong> Delhi, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+  </div>
+  <!-- Music Concerts -->
+  <h2 class="category-title">Music Concerts</h2>
+  <div class="card-group">
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/d7/26/82/d726820acb038f0b55d280e30ab776ec.jpg" alt="Rock Concert">
+      <h3>Sunidhi Chauhan</h3>
+      <p>🎸 Music Concert</p>
+      <p>Feel the energy of rock.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Sun, 19 Jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Parade Ground</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/48/e6/2b/48e62b6a372b12cc3b7cbe0ad288a521.jpg" alt="Jazz Concert">
+      <h3>Karan Aujla</h3>
+      <p>Music Concert</p>
+      <p>Vibe Goes On!</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Sat, 18 Jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Parade Ground</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/29/c5/2f/29c52f27aed37580da28f6dd083224e9.jpg" alt="Pop Concert">
+      <h3>Shreya Ghoshal</h3>
+      <p>🎤 Star Singer</p>
+      <p>All hearts tour.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Sat, 25 Jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Parade Ground</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+  </div>
+  <!---spiritual-->
+  <h2 class="category-title">Spiritual Shows</h2>
+  <div class="card-group">
+    <div class="event-card">
+      <img src="https://i.pinimg.com/control1/1200x/2b/bc/92/2bbc924597f4bf4cce4675df8112c183.jpg" alt="radha krishna">
+      <h3>Radha Krishna</h3>
+      <p>Definition of Love.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Sat, 25 Jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Auditorium, Dbuu</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/97/cc/47/97cc476c24d346b29310ab4b1e09b71a.jpg" alt="Gauri Shankar">
+      <h3>Gauri-Shankar</h3>
+      <p>Eternal love.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Mon, 27 Jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Auditorium, Dbuu</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/4e/a1/7e/4ea17ef9d861cdd233ce55615383e4b9.jpg" alt="mahabharat">
+      <h3>Mahabharat</h3>
+      <p>Definition of Life.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Sun, 26 Jul 2026</p>
+        <p><strong>Time:</strong> 7:30 PM</p>
+        <p><strong>Venue:</strong> Auditorium, Dbuu</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+  </div>
+  <!--standup-->
+  <h2 class="category-title">StandUp Shows</h2>
+  <div class="card-group">
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/a0/09/9c/a0099cf8622b47268c5fcf988b8da875.jpg" alt="madhur virli">
+      <h3>Madhur Virli</h3>
+      <p>Open Stage</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> wed, 29 Jul 2026</p>
+        <p><strong>Time:</strong> 5:30 PM</p>
+        <p><strong>Venue:</strong> Gaylords cafe, Paltan</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/58/04/66/580466b79489e9a79146eccf2964d73a.jpg" alt="samay">
+      <h3>Samay</h3>
+      <p>Still Alive.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Thu, 30 Jul 2026</p>
+        <p><strong>Time:</strong> 5:30 PM</p>
+        <p><strong>Venue:</strong> Gaylords cafe, Paltan</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH9dapvsaI32fVl_tz4eK638vrknURltRWohE4Yn27BQ&s=10" alt="ravi gupta">
+      <h3>Ravi Gupta</h3>
+      <p>ShudhDesiComic</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Fri, 31 Jul 2026</p>
+        <p><strong>Time:</strong> 5:30 PM</p>
+        <p><strong>Venue:</strong> Gaylords cafe, Paltan</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+  </div>
+  <!--Dance-->
+  <h2 class="category-title">Dance Shows</h2>
+  <div class="card-group">
+    <div class="event-card">
+      <img src="https://i.pinimg.com/1200x/73/86/28/7386281a821307c4cd6cc48d386c30f9.jpg" alt="classical">
+      <h3>Classical Dance</h3>
+      <p>Feels rythym.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> wed, 29 Jul 2026</p>
+        <p><strong>Time:</strong> 5:30 PM</p>
+        <p><strong>Venue:</strong> Auditorium,UPES</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/736x/d6/d8/7b/d6d87bcd7dd0e711cb0b6bda99575045.jpg" alt="hiphop">
+      <h3>Hip-Hop</h3>
+      <p>Feel the moves.</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Thu, 30 Jul 2026</p>
+        <p><strong>Time:</strong> 5:30 PM</p>
+        <p><strong>Venue:</strong> Auditorium,UPES</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+    <div class="event-card">
+      <img src="https://i.pinimg.com/1200x/62/f1/cc/62f1ccee30f8ae91208d2cd1eedca96e.jpg" alt="semi classical">
+      <h3>Semi-Classical</h3>
+      <p>Open Stage</p>
+      <div class="event-details">
+        <p><strong>Date:</strong> Fri, 31 Jul 2026</p>
+        <p><strong>Time:</strong> 5:30 PM</p>
+        <p><strong>Venue:</strong> Auditorium,UPES</p>
+        <p><strong>City:</strong> Dehradun, IN</p>
+      </div>
+      <button class="toggleBtn">Show Details</button>
+      <a href="form.html"><button class="book-btn">Book Tickets</button></a>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll(".event-card").forEach(card => {
+      const btn = card.querySelector(".toggleBtn");
+      const details = card.querySelector(".event-details");
+      btn.addEventListener("click", () => {
+        if (details.style.display === "none" || details.style.display === "") {
+          details.style.display = "block";
+          btn.textContent = "Hide Details"; 
+        } 
+        else {
+          details.style.display = "none";
+          btn.textContent = "View More Details"; 
+        }
+      });
+    });
+  </script>
+  <footer>
+    <p>&copy; 2026 Event Booking. All rights reserved.</p>
+  </footer>
+</body>
+</html>
